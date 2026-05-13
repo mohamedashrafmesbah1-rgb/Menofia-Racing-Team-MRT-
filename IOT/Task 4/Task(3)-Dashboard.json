@@ -1,0 +1,367 @@
+[
+    {
+        "id": "563287da52f34cd3",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "4641f7e2a651ac20",
+        "type": "inject",
+        "z": "563287da52f34cd3",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "result",
+        "payload": "15",
+        "payloadType": "num",
+        "x": 340,
+        "y": 780,
+        "wires": [
+            [
+                "2b122ac9ebb849c4"
+            ]
+        ]
+    },
+    {
+        "id": "2b122ac9ebb849c4",
+        "type": "function",
+        "z": "563287da52f34cd3",
+        "name": "function 1",
+        "func": "var x =msg.payload;\nmsg.payload=2*x+50;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 820,
+        "wires": [
+            [
+                "1adb3c20dae9c6a0",
+                "79dfb22749b7da63",
+                "bf873e67be21e507"
+            ]
+        ]
+    },
+    {
+        "id": "1adb3c20dae9c6a0",
+        "type": "debug",
+        "z": "563287da52f34cd3",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "edd3b84401275066",
+        "type": "function",
+        "z": "563287da52f34cd3",
+        "name": "function 4",
+        "func": "var output1 ={payload:\"Hello world\"};\nvar output2={payload:\"Node-red is fun\"};\nvar output3 ={payload:  \"Thank you dr.code for this exercise\"};\nvar output4 = {payload: \"Let's start with next lesson\"};\n\nreturn [ output1,output2,output3,output4];\n",
+        "outputs": 4,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 1560,
+        "wires": [
+            [
+                "496a1e3dd86824a4",
+                "f07d7fb9eafea498"
+            ],
+            [
+                "b880c789bacb9241",
+                "f56e1934c0a7499a"
+            ],
+            [
+                "2ce7ce5b14e53f0a",
+                "18fcdc8f05c7a4b5"
+            ],
+            [
+                "b776ed1e572a6970",
+                "6698f03fac67f2a5"
+            ]
+        ]
+    },
+    {
+        "id": "607b13df3d930de4",
+        "type": "inject",
+        "z": "563287da52f34cd3",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 380,
+        "y": 1560,
+        "wires": [
+            [
+                "edd3b84401275066"
+            ]
+        ]
+    },
+    {
+        "id": "496a1e3dd86824a4",
+        "type": "debug",
+        "z": "563287da52f34cd3",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 1460,
+        "wires": []
+    },
+    {
+        "id": "b880c789bacb9241",
+        "type": "debug",
+        "z": "563287da52f34cd3",
+        "name": "debug 9",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 1540,
+        "wires": []
+    },
+    {
+        "id": "2ce7ce5b14e53f0a",
+        "type": "debug",
+        "z": "563287da52f34cd3",
+        "name": "debug 10",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 1620,
+        "wires": []
+    },
+    {
+        "id": "b776ed1e572a6970",
+        "type": "debug",
+        "z": "563287da52f34cd3",
+        "name": "debug 11",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 1700,
+        "wires": []
+    },
+    {
+        "id": "79dfb22749b7da63",
+        "type": "ui_text",
+        "z": "563287da52f34cd3",
+        "group": "3f731295ac40cbe9",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Result",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": true,
+        "font": "",
+        "fontSize": 16,
+        "color": "#061c89",
+        "x": 850,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "f07d7fb9eafea498",
+        "type": "ui_text",
+        "z": "563287da52f34cd3",
+        "group": "9b7868a8f2d2dffb",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Output 1:-",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "style": true,
+        "font": "",
+        "fontSize": "16",
+        "color": "#07e451",
+        "x": 860,
+        "y": 1420,
+        "wires": []
+    },
+    {
+        "id": "f56e1934c0a7499a",
+        "type": "ui_text",
+        "z": "563287da52f34cd3",
+        "group": "9b7868a8f2d2dffb",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Output 2:-",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "style": true,
+        "font": "",
+        "fontSize": 16,
+        "color": "#d90d0d",
+        "x": 860,
+        "y": 1500,
+        "wires": []
+    },
+    {
+        "id": "18fcdc8f05c7a4b5",
+        "type": "ui_text",
+        "z": "563287da52f34cd3",
+        "group": "9b7868a8f2d2dffb",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Output 3:-",
+        "format": "{{msg.payload}}",
+        "layout": "row-right",
+        "className": "",
+        "style": true,
+        "font": "",
+        "fontSize": "16",
+        "color": "#092fec",
+        "x": 860,
+        "y": 1580,
+        "wires": []
+    },
+    {
+        "id": "6698f03fac67f2a5",
+        "type": "ui_text",
+        "z": "563287da52f34cd3",
+        "group": "9b7868a8f2d2dffb",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Output 4:-",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "style": true,
+        "font": "",
+        "fontSize": "16",
+        "color": "#ff8a05",
+        "x": 860,
+        "y": 1660,
+        "wires": []
+    },
+    {
+        "id": "bf873e67be21e507",
+        "type": "ui_gauge",
+        "z": "563287da52f34cd3",
+        "name": "",
+        "group": "3f731295ac40cbe9",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "30",
+        "seg2": "60",
+        "diff": false,
+        "className": "",
+        "x": 870,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "3f731295ac40cbe9",
+        "type": "ui_group",
+        "name": "Arithmetic Operation",
+        "tab": "2c159271e154a7e1",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "9b7868a8f2d2dffb",
+        "type": "ui_group",
+        "name": "output",
+        "tab": "2c159271e154a7e1",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "2c159271e154a7e1",
+        "type": "ui_tab",
+        "name": "Dashboard",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]

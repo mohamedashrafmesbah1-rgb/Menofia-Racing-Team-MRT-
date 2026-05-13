@@ -1,0 +1,338 @@
+[
+    {
+        "id": "235c0f253587065a",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "b98c54dc0306eb52",
+        "type": "inject",
+        "z": "235c0f253587065a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "result",
+        "payload": "15",
+        "payloadType": "num",
+        "x": 340,
+        "y": 780,
+        "wires": [
+            [
+                "63405008028491cf"
+            ]
+        ]
+    },
+    {
+        "id": "63405008028491cf",
+        "type": "function",
+        "z": "235c0f253587065a",
+        "name": "function 1",
+        "func": "var x =msg.payload;\nmsg.payload=2*x+50;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 820,
+        "wires": [
+            [
+                "4f87bb23e4883ffe",
+                "e6671ec134a4f62d"
+            ]
+        ]
+    },
+    {
+        "id": "4f87bb23e4883ffe",
+        "type": "debug",
+        "z": "235c0f253587065a",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "1e93815d028dc501",
+        "type": "function",
+        "z": "235c0f253587065a",
+        "name": "function 4",
+        "func": "var output1 ={payload:\"Hello world\"};\nvar output2={payload:\"Node-red is fun\"};\nvar output3 ={payload:  \"Thank you dr.code for this exercise\"};\nvar output4 = {payload: \"Let's start with next lesson\"};\n\nreturn [ output1,output2,output3,output4];\n",
+        "outputs": 4,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 1560,
+        "wires": [
+            [
+                "56dc6d8443bef27b",
+                "015f0af5238d49e5"
+            ],
+            [
+                "9a2d485eff28592f",
+                "6039f3c8e2b70f3a"
+            ],
+            [
+                "81701808dec9fe69",
+                "695e2304ec5f1f64"
+            ],
+            [
+                "b35ca09d75f8f0a2",
+                "5af412bbb84f1caf"
+            ]
+        ]
+    },
+    {
+        "id": "20ade886eb975cd2",
+        "type": "inject",
+        "z": "235c0f253587065a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 380,
+        "y": 1560,
+        "wires": [
+            [
+                "1e93815d028dc501"
+            ]
+        ]
+    },
+    {
+        "id": "56dc6d8443bef27b",
+        "type": "debug",
+        "z": "235c0f253587065a",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 1460,
+        "wires": []
+    },
+    {
+        "id": "9a2d485eff28592f",
+        "type": "debug",
+        "z": "235c0f253587065a",
+        "name": "debug 9",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 1540,
+        "wires": []
+    },
+    {
+        "id": "81701808dec9fe69",
+        "type": "debug",
+        "z": "235c0f253587065a",
+        "name": "debug 10",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 1620,
+        "wires": []
+    },
+    {
+        "id": "b35ca09d75f8f0a2",
+        "type": "debug",
+        "z": "235c0f253587065a",
+        "name": "debug 11",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 1700,
+        "wires": []
+    },
+    {
+        "id": "e6671ec134a4f62d",
+        "type": "ui_text",
+        "z": "235c0f253587065a",
+        "group": "3f731295ac40cbe9",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Result",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": true,
+        "font": "",
+        "fontSize": 16,
+        "color": "#061c89",
+        "x": 850,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "015f0af5238d49e5",
+        "type": "ui_text",
+        "z": "235c0f253587065a",
+        "group": "9b7868a8f2d2dffb",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Output 1:-",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "style": true,
+        "font": "",
+        "fontSize": "16",
+        "color": "#07e451",
+        "x": 860,
+        "y": 1420,
+        "wires": []
+    },
+    {
+        "id": "6039f3c8e2b70f3a",
+        "type": "ui_text",
+        "z": "235c0f253587065a",
+        "group": "9b7868a8f2d2dffb",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Output 2:-",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "style": true,
+        "font": "",
+        "fontSize": 16,
+        "color": "#d90d0d",
+        "x": 860,
+        "y": 1500,
+        "wires": []
+    },
+    {
+        "id": "695e2304ec5f1f64",
+        "type": "ui_text",
+        "z": "235c0f253587065a",
+        "group": "9b7868a8f2d2dffb",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Output 3:-",
+        "format": "{{msg.payload}}",
+        "layout": "row-right",
+        "className": "",
+        "style": true,
+        "font": "",
+        "fontSize": "16",
+        "color": "#092fec",
+        "x": 860,
+        "y": 1580,
+        "wires": []
+    },
+    {
+        "id": "5af412bbb84f1caf",
+        "type": "ui_text",
+        "z": "235c0f253587065a",
+        "group": "9b7868a8f2d2dffb",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Output 4:-",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "style": true,
+        "font": "",
+        "fontSize": "16",
+        "color": "#f0f42a",
+        "x": 860,
+        "y": 1660,
+        "wires": []
+    },
+    {
+        "id": "3f731295ac40cbe9",
+        "type": "ui_group",
+        "name": "Arithmetic Operation",
+        "tab": "2c159271e154a7e1",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "9b7868a8f2d2dffb",
+        "type": "ui_group",
+        "name": "output",
+        "tab": "2c159271e154a7e1",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "2c159271e154a7e1",
+        "type": "ui_tab",
+        "name": "Dashboard",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]

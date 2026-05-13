@@ -1,0 +1,328 @@
+[
+    {
+        "id": "ab68287aa3961134",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "08e42b95aca9ab7c",
+        "type": "inject",
+        "z": "ab68287aa3961134",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "reset",
+        "payload": "10",
+        "payloadType": "num",
+        "x": 280,
+        "y": 380,
+        "wires": [
+            [
+                "04cb4b86a4acd157"
+            ]
+        ]
+    },
+    {
+        "id": "7f3483ba0ecab828",
+        "type": "inject",
+        "z": "ab68287aa3961134",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "incerment",
+        "payload": "",
+        "payloadType": "num",
+        "x": 280,
+        "y": 540,
+        "wires": [
+            [
+                "04cb4b86a4acd157"
+            ]
+        ]
+    },
+    {
+        "id": "81ca53c9eac6663d",
+        "type": "inject",
+        "z": "ab68287aa3961134",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "decerment",
+        "payload": "",
+        "payloadType": "num",
+        "x": 300,
+        "y": 680,
+        "wires": [
+            [
+                "04cb4b86a4acd157"
+            ]
+        ]
+    },
+    {
+        "id": "04cb4b86a4acd157",
+        "type": "function",
+        "z": "ab68287aa3961134",
+        "name": "function 29",
+        "func": "if(msg.topic==\"reset\")\n{\n    context.set('count',msg.payload);\n    return msg;\n}\n \n\nif (msg.topic == \"incerment\") \n{\n    var count= context.get('count') ||10;\n    if (count<20)\n    {\n        count=count+1;\n        context.set('count',count);\n        msg.payload=count;\n        return msg;\n    }\n    \n}\nif (msg.topic == \"decerment\")\n{\n    var count = context.get('count') || 20;\n    if (count > 10) \n    {\n        count = count -1;\n        context.set('count', count);\n        msg.payload = count;\n        return msg;\n\n    }\n\n}\n\n  \n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 540,
+        "wires": [
+            [
+                "42701f8f7ec6ce73"
+            ]
+        ]
+    },
+    {
+        "id": "42701f8f7ec6ce73",
+        "type": "debug",
+        "z": "ab68287aa3961134",
+        "name": "debug 31",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 900,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "101cc63b661df94a",
+        "type": "function",
+        "z": "ab68287aa3961134",
+        "name": "function 31",
+        "func": "msg.topic=\"Value1\";\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 1320,
+        "wires": [
+            [
+                "ef26fe143a8cf7fe"
+            ]
+        ]
+    },
+    {
+        "id": "a25d132b9d1ebb8c",
+        "type": "random",
+        "z": "ab68287aa3961134",
+        "name": "Value1",
+        "low": 1,
+        "high": 10,
+        "inte": "true",
+        "property": "payload",
+        "x": 470,
+        "y": 1320,
+        "wires": [
+            [
+                "101cc63b661df94a"
+            ]
+        ]
+    },
+    {
+        "id": "4105545c77039ffb",
+        "type": "random",
+        "z": "ab68287aa3961134",
+        "name": "Value2",
+        "low": 1,
+        "high": 10,
+        "inte": "true",
+        "property": "payload",
+        "x": 470,
+        "y": 1420,
+        "wires": [
+            [
+                "1d646bcef02d3053"
+            ]
+        ]
+    },
+    {
+        "id": "1e142eed2350fa2e",
+        "type": "random",
+        "z": "ab68287aa3961134",
+        "name": "Value3",
+        "low": 1,
+        "high": 10,
+        "inte": "true",
+        "property": "payload",
+        "x": 470,
+        "y": 1520,
+        "wires": [
+            [
+                "47e1e3405f0821a6"
+            ]
+        ]
+    },
+    {
+        "id": "5af6281ac4ebc8b6",
+        "type": "inject",
+        "z": "ab68287aa3961134",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 1440,
+        "wires": [
+            [
+                "a25d132b9d1ebb8c",
+                "4105545c77039ffb",
+                "1e142eed2350fa2e"
+            ]
+        ]
+    },
+    {
+        "id": "40fe3322c271878d",
+        "type": "debug",
+        "z": "ab68287aa3961134",
+        "name": "debug 34",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1020,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "88ab82f62a87b107",
+        "type": "debug",
+        "z": "ab68287aa3961134",
+        "name": "debug 35",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 1500,
+        "wires": []
+    },
+    {
+        "id": "1d646bcef02d3053",
+        "type": "function",
+        "z": "ab68287aa3961134",
+        "name": "function 33",
+        "func": "msg.topic=\"Value2\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 1420,
+        "wires": [
+            [
+                "ef26fe143a8cf7fe"
+            ]
+        ]
+    },
+    {
+        "id": "47e1e3405f0821a6",
+        "type": "function",
+        "z": "ab68287aa3961134",
+        "name": "function 34",
+        "func": "msg.topic=\"Value3\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 1520,
+        "wires": [
+            [
+                "ef26fe143a8cf7fe"
+            ]
+        ]
+    },
+    {
+        "id": "ef26fe143a8cf7fe",
+        "type": "function",
+        "z": "ab68287aa3961134",
+        "name": "function 32",
+        "func": "if(msg.topic==\"Value1\")\n{\n    context.set('a',msg.payload);\n    \n}\nif(msg.topic==\"Value2\")\n{\n    context.set('b',msg.payload);\n    \n}\nif(msg.topic==\"Value3\")\n{\n    context.set('c',msg.payload);\n    \n}\nvar a=context.get('a');\nvar b=context.get('b');\nvar c=context.get('c');\nvar x={};\nvar y={};\nx.payload=a+2*b+3*c;\ny.payload=3*a+2*b-3*c;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 870,
+        "y": 1420,
+        "wires": [
+            [
+                "40fe3322c271878d",
+                "88ab82f62a87b107"
+            ]
+        ]
+    }
+]

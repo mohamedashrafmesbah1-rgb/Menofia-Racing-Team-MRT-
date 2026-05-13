@@ -1,0 +1,114 @@
+[
+    {
+        "id": "3adcb6ea75295b60",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "056aa3ad105eacf3",
+        "type": "debug",
+        "z": "3adcb6ea75295b60",
+        "name": "debug 14",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "881a789bdd246405",
+        "type": "inject",
+        "z": "3adcb6ea75295b60",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "payload1",
+        "payload": "[\"John\",\"London\",26]",
+        "payloadType": "json",
+        "x": 440,
+        "y": 180,
+        "wires": [
+            [
+                "056aa3ad105eacf3"
+            ]
+        ]
+    },
+    {
+        "id": "aacb2873ef4e8743",
+        "type": "inject",
+        "z": "3adcb6ea75295b60",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "info",
+        "payload": "[     \"Jessica\",     \"Australia\",     27 ]",
+        "payloadType": "json",
+        "x": 410,
+        "y": 240,
+        "wires": [
+            [
+                "056aa3ad105eacf3"
+            ]
+        ]
+    },
+    {
+        "id": "28b967e15512794e",
+        "type": "inject",
+        "z": "3adcb6ea75295b60",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "info",
+        "payload": "[\"david\",    \"gremany\"   ,   30]",
+        "payloadType": "json",
+        "x": 410,
+        "y": 320,
+        "wires": [
+            [
+                "056aa3ad105eacf3"
+            ]
+        ]
+    }
+]
